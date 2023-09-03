@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1_KosinovaAi", "Lab1_KosinovaAi.csproj", "{C9DEF85D-490A-44DF-A383-4D3637A79C29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{29F8E2C9-D3C4-4BF3-8BEE-AEF2CAD9A5AC}"
+	ProjectSection(SolutionItems) = preProject
+		Triangle.cs = Triangle.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9DEF85D-490A-44DF-A383-4D3637A79C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DEF85D-490A-44DF-A383-4D3637A79C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DEF85D-490A-44DF-A383-4D3637A79C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DEF85D-490A-44DF-A383-4D3637A79C29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB825E55-CFFC-4DA1-AB60-FD3D0402FA25}
+	EndGlobalSection
+EndGlobal

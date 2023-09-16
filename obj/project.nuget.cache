@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ul8KqaeOSwhpFJKAsMcPd4G6Ac7mIxQ4VIixbVnPzIEHvNVpCjw7YBMiZUb2PAlK7nsqtMoQcTFgByR21hFdRw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\KosinovaAi\\Source\\Repos\\Lab1_KosinovaAi107\\Lab1_KosinovaAi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KosinovaAi\\.nuget\\packages\\serilog\\3.0.1\\serilog.3.0.1.nupkg.sha512",
+    "C:\\Users\\KosinovaAi\\.nuget\\packages\\serilog.sinks.console\\4.1.0\\serilog.sinks.console.4.1.0.nupkg.sha512",
+    "C:\\Users\\KosinovaAi\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

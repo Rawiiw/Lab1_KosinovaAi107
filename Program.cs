@@ -10,15 +10,15 @@ class Program
             .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
-        Console.WriteLine("Введите сторону a");
-        string a = Console.ReadLine();
-        Console.WriteLine("Введите сторону b");
-        string b = Console.ReadLine();
-        Console.WriteLine("Введите сторону c");
-        string c = Console.ReadLine();
-
         Triangle tri = new Triangle();
-        tri.OutputCheck(a, b, c);
+        tri.OutputCheck("1", "2", "5");
+        tri.OutputCheck("5", "2", "5");
+        tri.OutputCheck("1", "1", "1");
+        tri.OutputCheck("-1", "2", "5");
+        tri.OutputCheck("1", "-1", "1");
+        tri.OutputCheck("1", "2", "-5");
+        tri.OutputCheck("1w", "1", "1");
+        tri.OutputCheck("1", "2e", "5");
 
         Log.CloseAndFlush();
     }

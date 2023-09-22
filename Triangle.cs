@@ -3,17 +3,7 @@ using Serilog;
 
 public class Triangle
 {
-    private ILogger log;
-
-    public Triangle()
-    {
-        //инициализация для вывода в консоль
-        log = new LoggerConfiguration()
-            .WriteTo.Console()
-            .CreateLogger();
-    }
-
-    public void OutputCheck(string a, string b, string c)
+    public Tuple<string, Tuple<int, int>[]> OutputCheck(string a, string b, string c)
     {
         //преобразование введенных значений сторон в числа с плавающей точкой
         float? sideA = ToSingleNullable(a);
@@ -26,7 +16,7 @@ public class Triangle
             if (IsTriangle(sideA.Value, sideB.Value, sideC.Value))
             {
                 //логирование успешного запроса
-                LogMessage("Успешный запрос", a, b, c, "Треугольник");
+                Log.Information($"Успешный запрос, a={a}, b={b}, c={c}, Треугольник");
 
                 //определение типа треугольника
                 string triangleType = DetermineTriangleType(sideA.Value, sideB.Value, sideC.Value);
@@ -37,23 +27,29 @@ public class Triangle
                     //вычисление и вывод координат вершин треугольника
                     var vertices = CalculateVertices(sideA.Value, sideB.Value, sideC.Value);
                     Console.WriteLine("Координаты вершин:");
-                    Console.WriteLine($"Вершина A: ({vertices[0].Item1}, {vertices[0].Item2})");
-                    Console.WriteLine($"Вершина B: ({vertices[1].Item1}, {vertices[1].Item2})");
-                    Console.WriteLine($"Вершина C: ({vertices[2].Item1}, {vertices[2].Item2})");
+
+                    Log.Information($"Вершина A: ({vertices[0].Item1}, {vertices[0].Item2})");
+                    Log.Information($"Вершина B: ({vertices[1].Item1}, {vertices[1].Item2})");
+                    Log.Information($"Вершина C: ({vertices[2].Item1}, {vertices[2].Item2})");
+
+                    return Tuple.Create(triangleType, vertices);
+                }
+                else
+                {
+                    return Tuple.Create(triangleType, new Tuple<int, int>[] { Tuple.Create(-1, -1), Tuple.Create(-1, -1), Tuple.Create(-1, -1) });
                 }
             }
             else
             {
                 //логирование неуспешного запроса (не существует треугольника)
-                LogMessage("Неуспешный запрос", a, b, c, "Не треугольник");
-                Console.WriteLine("Данный треугольник не существует.");
+                Log.Information($"Неуспешный запрос a={a}, b={b}, c={c}, Не треугольник");
+                return Tuple.Create("Не треугольник", new Tuple<int, int>[] { Tuple.Create(-1, -1), Tuple.Create(-1, -1), Tuple.Create(-1, -1) });
             }
         }
         else
         {
-            //логирование неуспешного запроса 
-            LogMessage("Неуспешный запрос", a, b, c, "Нечисловые данные");
-            Console.WriteLine("Неверный формат входных данных.");
+            Log.Information($"Неуспешный запрос. a={a}, b={b}, c={c}, переданы нечисловые данные.");
+            return Tuple.Create("", new Tuple<int, int>[] { Tuple.Create(-2, -2), Tuple.Create(-2, -2), Tuple.Create(-2, -2) });
         }
     }
 
@@ -122,10 +118,5 @@ public class Triangle
         }
     }
 
-    private void LogMessage(string status, string a, string b, string c, string result)
-    {
-        //формирование и логирование сообщения
-        string logMessage = $"{DateTime.Now}: Входные данные: a={a}, b={b}, c={c}, Результат: {result}";
-        Log.Information(logMessage);
-    }
+   
 }
